@@ -3,6 +3,9 @@ const api={
     baseurl:"https://api.openweathermap.org/data/2.5/"
 
 }
+let now = new Date();
+    let date = document.querySelector('.location .date');
+    date.innerText= dateBuilder(now);
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
@@ -40,14 +43,13 @@ function displayResults(weather) {
 function dateBuilder(d){
     let months = ['Janauary','February','March','April','May','June','July','August','September','October', 
     'November', 'December'	];
-    let days = ['Monday','Tuesday', 'Wednesday', 'Thursday','Friday','Saturday ', 'Sunday'];
+    let days = ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday','Friday','Saturday '];
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
     return `${day} ${date} ${month} ${year}`;
 }
-
 
 
 
